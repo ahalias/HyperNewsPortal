@@ -1,5 +1,7 @@
 from django.urls import path, re_path
 from news.views import MainPageView, NewsView, NewsArticleView, CreateNewsFormView
+from django.conf import settings
+from django.conf.urls.static import static
 from news import views
 
 urlpatterns = [
@@ -10,3 +12,4 @@ urlpatterns = [
     path('news/?P<query>\w+/', NewsView.as_view(), name='search')
 ]
 
+urlpatterns += static(settings.STATIC_URL)
